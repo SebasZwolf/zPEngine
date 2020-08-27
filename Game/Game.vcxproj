@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{A6008E15-C962-473F-AB92-ED31F0D7AD81}</ProjectGuid>
+    <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>zPapierEngine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)Includes;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)Includes;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)Includes;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)Includes;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\Includes;$(SolutionDir)Game\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\output;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;$(SolutionDir)$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\Includes;$(SolutionDir)Game\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\output;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;$(SolutionDir)$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\Includes;$(SolutionDir)Game\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\output;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;$(SolutionDir)$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\Includes;$(SolutionDir)Game\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Game\fnc\output;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>Shell32.lib;fnc.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_ttf-2.0.15\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_mixer-2.0.4\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2_image-2.0.1\lib\x64;C:\Users\Sebastian\Documents\VisualStudioProjects\SDL2\lib\x64;$(SolutionDir)$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\internal\Audio.cpp" />
+    <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\internal\Graphics.cpp" />
+    <ClCompile Include="src\Tools\AssetManager.cpp" />
+    <ClCompile Include="src\internal\GlobalSettings.cpp" />
+    <ClCompile Include="src\Tools\CollisionManager.cpp" />
+    <ClCompile Include="src\Tools\ECS\ECS.cpp" />
+    <ClCompile Include="src\Tools\ECS\SpriteComoponent.h" />
+    <ClCompile Include="src\Tools\IManage.cpp" />
+    <ClCompile Include="src\Tools\InputManager.cpp" />
+    <ClCompile Include="src\Tools\Master.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\internal\Audio.h" />
+    <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\internal\Graphics.h" />
+    <ClInclude Include="src\Tools\AssetManager.h" />
+    <ClInclude Include="src\internal\GlobalSettings.h" />
+    <ClInclude Include="src\Tools\CollisionManager.h" />
+    <ClInclude Include="src\Tools\ECS\ECS.h" />
+    <ClInclude Include="src\Tools\ECS\CollisionComponent.h" />
+    <ClInclude Include="src\Tools\ECS\Components.h" />
+    <ClInclude Include="src\Tools\ECS\NodeComponent.h" />
+    <ClInclude Include="src\Tools\ECS\RelTransformComponent.h" />
+    <ClInclude Include="src\Tools\ECS\TransformComponent.h" />
+    <ClInclude Include="src\Tools\IManage.h" />
+    <ClInclude Include="src\Tools\InputManager.h" />
+    <ClInclude Include="src\Tools\Literals.h" />
+    <ClInclude Include="src\Tools\Master.h" />
+    <ClInclude Include="src\Tools\ParticleManager.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
