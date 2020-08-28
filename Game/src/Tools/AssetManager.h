@@ -28,7 +28,6 @@ public:
 	fncTexture(SDL_Texture* t);
 	~fncTexture();
 } fncTexture;
-
 typedef struct fncSprite{
 private:
 	void config(fig::Point<fnc::ushort>(*func)(fnc::ushort, fncSprite& texture));
@@ -44,7 +43,6 @@ public:
 	~fncSprite();
 	friend class AssetManager;
 } fncSprite;
-
 typedef struct fncFont {
 private:
 public:
@@ -65,13 +63,11 @@ public:
 	fncFont(SDL_Texture* texture, char* inner, Detail detail);
 	~fncFont();
 } fncFont;
-
 typedef struct fncMusic {
 	Mix_Music* const source;
 	fncMusic(Mix_Music*);
 	~fncMusic();
 } fncMusic;
-
 typedef struct fncSFX {
 	Mix_Chunk* const source;
 	fncSFX(Mix_Chunk*);
@@ -83,7 +79,6 @@ private:
 	static AssetManager* sInstance;
 	SDL_Renderer* renderer;
 	
-	void SetUp(SDL_Renderer*);
 public:
 	static AssetManager* Instance();
 	static void Release();

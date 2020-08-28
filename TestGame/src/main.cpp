@@ -10,6 +10,7 @@
 #include "internal/Graphics.h"
 
 #include "Tools/Master.h"
+#include "Tools/ParticleManager.h"
 
 #include "fnc.h"
 
@@ -21,7 +22,17 @@ public:
 		printf("\ttittle ");
 	}
 
-	void init() {}
+	part_system ps;
+	void init() {
+		auto &pm = *ParticleManager::Instance();
+		pm.Create();
+		pm.set_colors( { 0xcc, 0x66,0x00 }, { 0xff, 0xe5,0xcc });
+		pm.set_velocity({ 0,-2}, { 2, 2 });
+		pm.set_lifetime(80, 0);
+
+		ps = pm.Save();
+	}
+
 	void step() override {
 		auto& master_tool = *MasterTool::Instance();
 		if (sngInput.keyboard_check.pressed(key::ord('a')))
@@ -29,6 +40,11 @@ public:
 	}
 	char dr = 1, dg = 1, db = 1;
 	void draw() override {
+		short x = sngInput.mouse.get_pos().x;
+		short y = sngInput.mouse.get_pos().y;
+
+		ParticleManager::Instance()->burst(ps, {x,y});
+
 		auto& draw_tool = MasterTool::Instance()->draw;
 
 		auto& color = draw_tool.set.background_color;
@@ -49,8 +65,6 @@ public:
 
 		{
 			draw_tool.set.color = { 0xff,0xaa,0xff };
-			fig::cRect dst{ { sngInput.mouse.get_pos().x, sngInput.mouse.get_pos().y },{ 200,200 } };
-			draw_tool.filled.rect(dst);
 			MasterTool::Instance()->draw.set.font = AssetManager::Instance()->font["regular.fnt"];
 			draw_tool.text("test text!", 10, 10);
 		}

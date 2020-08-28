@@ -156,6 +156,13 @@ namespace del {
 	using event = delegate<void(Args*)>;
 }
 
+//Graphics Data holders
+namespace vis {
+	struct Color{
+		fnc::usmall r, g, b;
+		bool operator ==(const Color& c);
+	};
+}
 //Figures
 namespace fig {
 	template<typename t>

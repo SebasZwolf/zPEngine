@@ -1,4 +1,6 @@
 #include "Master.h"
+#include "internal/Graphics.h"
+#include "internal//Audio.h"
 
 #include <SDL_image.h>
 #include <SDL_mixer.h>
@@ -17,17 +19,19 @@ MasterTool* MasterTool::Instance() {
 	return fnc::iSing <MasterTool>::Instance();
 }
 
-//DRAW
 static SDL_Renderer* renderer = NULL;
-static fncColor realColor = {0x00,0x00,0x00};
+static fnc::usmall channels;
 
-void MasterTool::Draw::setUp(SDL_Renderer* _renderer) {
-	static bool config = false;
-	if (config) return;
-	
-	renderer = _renderer;
+//DRAW
+static vis::Color realColor = {0x00,0x00,0x00};
 
-	config = true;
+MasterTool::MasterTool() { 
+	renderer = Graphics::Instance()->ask();
+	channels = Audio::Instance()->ask();
+	printf("MasterTool initialized!\n");
+}
+MasterTool::~MasterTool() {
+	printf("MasterTool destroy!\n");
 }
 
 static void updateColor() {
@@ -188,17 +192,13 @@ void MasterTool::Draw::clear(){
 	SDL_SetRenderDrawColor(renderer, c.color.r, c.color.g, c.color.b, 0xff);
 }
 
-void MasterTool::Draw::clear(fncColor & c){
+void MasterTool::Draw::clear(vis::Color & c){
 	SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, 0xff);
 
 	SDL_RenderClear(renderer);
 
 	auto& _c = MasterTool::Instance()->draw.get.color;
 	SDL_SetRenderDrawColor(renderer, _c.r, _c.g, _c.b, 0xff);
-}
-
-bool fncColor::operator==(const fncColor & c){
-	return (this->r == c.r && this->g == c.g && this->b == c.b);
 }
 
 void MasterTool::Draw::Sprite::operator()(fnc::text key, fnc::usmall subimg, int x, int y){
@@ -223,7 +223,7 @@ void MasterTool::Draw::Sprite::operator()(fncSprite * sprite, fnc::usmall subimg
 	SDL_RenderCopy(renderer, sprite->texture.texture, &src, &dst);
 }
 
-void MasterTool::Draw::Sprite::ext(fnc::text key, fnc::usmall subimg, int x, int y, fig::Vector2D scale, float angle, fncColor color, fnc::usmall alpha){
+void MasterTool::Draw::Sprite::ext(fnc::text key, fnc::usmall subimg, int x, int y, fig::Vector2D scale, float angle, vis::Color color, fnc::usmall alpha){
 	fncSprite* sprite = AssetManager::Instance()->sprite[key];
 
 	subimg %= sprite->image_number;
@@ -255,7 +255,7 @@ void MasterTool::Draw::Texture::operator()(fnc::text key, int x, int y){
 	SDL_RenderCopy(renderer, tex->texture, NULL, &dst);
 }
 
-void MasterTool::Draw::Texture::ext(fnc::text key, int x, int y, fig::Vector2D scale, float angle, fncColor color, fnc::usmall alpha){
+void MasterTool::Draw::Texture::ext(fnc::text key, int x, int y, fig::Vector2D scale, float angle, vis::Color color, fnc::usmall alpha){
 	fncTexture* tex = AssetManager::Instance()->texture[key];
 	SDL_Rect dst{ x,y,tex->size.x * std::abs(scale.x), tex->size.y * std::abs(scale.y)};
 
@@ -318,7 +318,6 @@ void MasterTool::Draw::Text::operator()(fnc::text text, int x, int y) {
 
 //SOUND!
 static std::bitset<48> BSChannels;
-static fnc::usmall channels;
 
 static unsigned char getFreeChannel(fnc::usmall max) {
 	if (BSChannels[0] == false) return 0;
@@ -350,12 +349,4 @@ void MasterTool::Play::Sfx::operator()(fnc::text key, fnc::ushort loops){
 
 void MasterTool::Play::Sfx::in_channel(fnc::text key, fnc::usmall channel, fnc::ushort loops){
 	Mix_PlayChannelTimed(channel, AssetManager::Instance()->sfx[key]->source, loops, -1);
-}
-
-void MasterTool::Play::setUp(fnc::usmall channelNumber){
-	static bool config = false;
-	if (config) return;
-
-	channels = channelNumber;
-	config = true;
 }

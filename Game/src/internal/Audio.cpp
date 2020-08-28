@@ -38,8 +38,12 @@ void Audio::End(){
 	delete sInstance;
 }
 
-Audio::Audio(unsigned short& channelNumber){	
-	MasterTool::Instance()->play.setUp(channelNumber);
+unsigned short Audio::ask() {
+	return channels;
+}
+
+Audio::Audio(unsigned short& channelNumber){
+	channels = channelNumber;
 	printf("Audio %s\n", "initialized");
 }
 

@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include <cstdio>
 
+#include "Tools/AssetManager.h"
+#include "Tools/ParticleManager.h"
 #include "Tools/InputManager.h"
 #include "Tools/Master.h"
 
@@ -11,11 +13,11 @@ GameManager * GameManager::Start(GraphicsInfo gI, AudioInfo aI) {
 
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)				goto SdlInitFail;
 
-	MasterTool::Instance()->SetUp();
-
 	if (!GlobalSettings::Start(gI.title, gI.w, gI.h, gI.x, gI.h))	goto windowFail;
 	if (!Graphics::Start(GlobalSettings::Instance()->GetWindow()))	goto GraphicsFail;
 	if (!Audio::Start(aI.stereo, aI.chunkSize, aI.channelNumber))	goto AudioFail;
+
+	MasterTool::Instance();
 
 	sInstance = new GameManager(GlobalSettings::Instance(), Graphics::Instance(), Audio::Instance());
 	return sInstance;
@@ -38,6 +40,8 @@ void GameManager::End(){
 	Manager::Release();
 	InputManager::Release();
 
+	ParticleManager::Release();
+	AssetManager::Release();
 	MasterTool::Release();
 
 	Graphics::End();
@@ -101,12 +105,14 @@ void GameManager::handle(){
 
 void GameManager::update(){
 	manager->step();
+	ParticleManager::Instance()->step();
 }
 
 void GameManager::render(){
 	MasterTool::Instance()->draw.clear();
 
 	manager->draw();
+	ParticleManager::Instance()->draw();
 	graphics->Render();
 }
 

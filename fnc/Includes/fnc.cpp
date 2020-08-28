@@ -26,8 +26,14 @@ namespace fnc {
 	float lerp(float s, float e, float p) {
 		return s + p * (e - s);
 	}
-
 }
+
+namespace vis {
+	bool Color::operator==(const Color& c) {
+		return (this->r == c.r && this->g == c.g && this->b == c.b);
+	}
+}
+
 namespace fig {
 
 	template<typename t>

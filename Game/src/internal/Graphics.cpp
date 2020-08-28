@@ -62,15 +62,6 @@ void Graphics::Render(){
 
 Graphics::Graphics(SDL_Renderer* r) : renderer(r) {
 	printf("Graphics %s\n","initialized");
-
-	sngAManager.SetUp(renderer);
-	MasterTool::Instance()->draw.setUp(renderer);
-
-	/*sngDraw.SetUp(renderer);
-
-	sngDraw.draw.set.backgroudColour	= { 0xaa,0xff,0xaa };
-	sngDraw.draw.set.colour				= { 0xaa,0xaa,0xff };*/
-
 }
 
 Graphics::~Graphics(){

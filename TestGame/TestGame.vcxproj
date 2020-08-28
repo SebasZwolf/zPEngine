@@ -58,12 +58,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\ZPapierEngine\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\fnc\Includes;C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\Game\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\ZPapierEngine\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Game.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>zPapierEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -74,14 +74,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\ZPapierEngine\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\fnc\Includes;C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\Game\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\ZPapierEngine\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Game.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Sebastian\Documents\VisualStudioProjects\Engine\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>zPapierEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

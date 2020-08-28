@@ -1,4 +1,5 @@
 #include "AssetManager.h"
+#include "internal/Graphics.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -48,11 +49,9 @@ fncSFX::~fncSFX() {
 
 AssetManager* AssetManager::sInstance = NULL;
 
-void AssetManager::SetUp(SDL_Renderer * renderer) {
-	this->renderer = renderer;
-}
 AssetManager * AssetManager::Instance(){
 	if (sInstance == NULL) sInstance = new AssetManager();	
+	
 	return sInstance;
 }
 void AssetManager::Release(){
@@ -62,15 +61,11 @@ void AssetManager::Release(){
 	sInstance = NULL;
 }
 AssetManager::AssetManager() {
-	
-#ifdef _IOSTREAM_
-	std::cout << "AssetMannager initiailzated\n";
-#endif // _IOSTREAM_
+	this->renderer = Graphics::Instance()->ask();
+	printf("AssetMannager initiailzated!\n");
 }
 AssetManager::~AssetManager(){
-#ifdef _IOSTREAM_
-	std::cout << "AssetMannager destroyed\n";
-#endif // _IOSTREAM_
+	printf("AssetMannager destroyed!\n");
 }
 
 //TEXTURE---														--------->
